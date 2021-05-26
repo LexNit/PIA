@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons>
+      <ion-back-button [text]="getBackButtonText()" defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    
+    <ion-title>Add your dog!</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list lines="full">
+    <form [formGroup]="mainForm" (ngSubmit)="storeData()">
+
+      <ion-item>
+        <ion-label position="floating">Dog breed</ion-label>
+        <ion-input formControlName="breed" type="text" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Size</ion-label>
+        <ion-input formControlName="size" type="text" required></ion-input>
+      </ion-item>
+      <ion-item>
+
+        <ion-label position="floating">Your dog height </ion-label>
+        <ion-input formControlName="height" type="text" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Where is your dog from?</ion-label>
+        <ion-input formControlName="origin" type="text" required>
+        </ion-input>
+      </ion-item>
+
+      <ion-row>
+        <ion-col>
+          <ion-button type="submit" color="primary" shape="full" expand="block">
+            Add your dog
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </form>
+  </ion-list>
+
+    <ion-list>
+    <ion-list-header>
+      Dogs
+    </ion-list-header>
+
+    <ion-item lines="inset" *ngFor="let data of Data">
+      <ion-label>
+        <h5>{{data.breed}}</h5>
+        <p>{{data.size}}</p>
+        <p>{{data.height}}</p>
+        <p>{{data.origin}}</p>
+      </ion-label>
+
+      <div class="item-note" item-end>
+                                                            <!-- addogs?? -->
+        <ion-icon name="create" style="zoom:2.0" [routerLink]="['/addogs/', data.id]"></ion-icon>
+        <ion-icon name="trash" style="zoom:2.0" (click)="deleteDog(data.id)"></ion-icon>
+      </div>
+    </ion-item>
+  </ion-list>
+</ion-content>

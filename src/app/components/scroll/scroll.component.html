@@ -1,0 +1,21 @@
+<ion-content>
+  <div class="ion-padding content-container">
+
+    <ion-toolbar>
+
+      <ion-buttons slot="end">
+        <ion-button><ion-icon slot="icon-only" name="heart"></ion-icon></ion-button>
+      </ion-buttons>
+
+      <h1 #triggerElement>Fun facts !</h1>
+
+    </ion-toolbar>
+
+    <ion-list *ngFor="let f of content">
+      <ion-item>
+        <h4>{{f.text}}</h4>
+      </ion-item>
+    </ion-list><br>
+
+  </div>
+</ion-content>

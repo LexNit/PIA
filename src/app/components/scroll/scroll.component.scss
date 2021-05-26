@@ -1,0 +1,52 @@
+ion-content {
+  --background: transparent;
+  transform: translate3d(0, 50px, 0);
+  transition: 0.5s;
+  border-radius: 30px;
+
+}
+
+.no-scroll {
+  transform: translate3d(0, 0, 0) !important;
+}
+
+ion-toolbar {
+  --background: transparent;
+  --border-width: 0 !important;
+}
+
+.content-container {
+  height: 100%;
+  border-radius: 30px 30px 0 0;
+  padding-top: 40px;
+  background-color: #ffff;
+  //background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.3));
+  overflow: scroll;
+  padding-bottom: 50px;
+  background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.3));
+
+}
+
+#triggerElement {
+  color: #ffff;
+}
+
+ h1{
+  color: black;
+  font-weight: 600;
+  font-size: 2.5rem;
+  opacity: 0.8;
+  padding: 20px;
+ }
+
+ h2{
+  color: black;
+  font-weight: 500;
+  font-size: 2rem;
+  opacity: 0.8;
+  padding: 20px;
+}
+
+ion-list, ion-item {
+  --ion-background-color: linear-gradient(to right bottom, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.3));
+}
