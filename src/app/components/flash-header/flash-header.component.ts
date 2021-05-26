@@ -5,8 +5,10 @@ import { Component, Input, OnInit } from '@angular/core';
   templateUrl: './flash-header.component.html',
   styleUrls: ['./flash-header.component.scss'],
 })
+
 export class FlashHeaderComponent implements OnInit {
 
+  //Necesario para que el componente acepte parametros
   @Input() titulo: string;
 
   constructor() { }

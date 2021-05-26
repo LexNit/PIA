@@ -9,7 +9,6 @@ ion-menu-button {
   right: 0;
   top: 50%;
   transform: translateY(-50%);
-
 }
 
 #container strong {
@@ -32,7 +31,6 @@ ion-menu-button {
   display: flex;
   justify-content: center;
   align-items: center;
-
 }
 
 h1 {
@@ -55,13 +53,6 @@ ion-img {
   height: 100%;
   width: 100%;
 }
-
-// h1{
-//   font-weight: 600;
-//   font-size: 3rem;
-//   opacity: 0.8;
-//   padding: 20px;
-// }
 
 ion-content {
   --background: linear-gradient(to right top, #dd5e89 , #f7bb97);
@@ -95,24 +86,5 @@ ion-button{
   float:right;
   margin-right: 5%;
 }
-
-// .no-scroll {
-//   transform: translate3d(0, 0, 0) !important;
-// }
-
-// .scroll {
-//   --background: transparent;
-//   transform:  translate3d(0, 100px, 0);
-//   transition: 0.5s;
-// }
-
-// .contenido-scroll {
-//   background-color: #fff;
-//   height: 100%;
-//   border-radius: 30px;
-//   padding-top: 40px;
-//   overflow: scroll;
-//   padding-bottom: 100px;
-// }
 
 

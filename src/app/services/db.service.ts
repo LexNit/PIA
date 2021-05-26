@@ -11,10 +11,12 @@ import { SQLite, SQLiteObject } from '@ionic-native/sqlite/ngx';
 })
 
 export class DbService {
+
   private storage: SQLiteObject;
   dogsList = new BehaviorSubject([]);
   private isDbReady: BehaviorSubject<boolean> = new BehaviorSubject(false);
 
+  //Creacion de bd
   constructor(
     private platform: Platform,
     private sqlite: SQLite,
@@ -33,15 +35,17 @@ export class DbService {
     });
   }
 
+  //Funcion para verificar la bd
   dbState() {
     return this.isDbReady.asObservable();
   }
 
+  //Funcion para verificar el arreglo de perros
   fetchDogs(): Observable<Dogs[]> {
     return this.dogsList.asObservable();
   }
 
-  // Render fake data
+  // Desplegar info de perros desde la bd
   getFakeData() {
     this.httpClient.get(
       'assets/dump.sql',
@@ -56,7 +60,7 @@ export class DbService {
     });
   }
 
-  // Get list
+  //Funcion para la obtención del arreglo
   getDogs() {
     return this.storage.executeSql('SELECT * FROM dogstable', []).then(res => {
       let items: Dogs[] = [];
@@ -75,7 +79,7 @@ export class DbService {
     });
   }
 
-  // Add
+  // Funcion para añadir un perro
   addDog(breed, size, height, origin) {
     let data = [breed, size, height, origin];
     return this.storage.executeSql('INSERT INTO dogstable (breed, size, height, origin) VALUES (?, ?, ?, ?)', data)
@@ -84,7 +88,7 @@ export class DbService {
     });
   }
 
-  // Get single object
+  // Funcion para obtener un perro en base a la id
   getDog(id): Promise<Dogs> {
     return this.storage.executeSql('SELECT * FROM dogstable WHERE id = ?', [id]).then(res => {
       return {
@@ -97,7 +101,7 @@ export class DbService {
     });
   }
 
-  // Update
+  // Funcion para la edición de los datos de un perro
   updateDog(id, dog: Dogs) {
     let data = [dog.breed, dog.size, dog.height, dog.origin];
     return this.storage.executeSql(`UPDATE dogstable SET breed = ?, size = ?, height = ?, origin = ? WHERE id = ${id}`, data)
@@ -106,7 +110,7 @@ export class DbService {
     })
   }
 
-  // Delete
+  // Funcion para borrar un perro
   deleteDog(id) {
     return this.storage.executeSql('DELETE FROM dogstable WHERE id = ?', [id])
     .then(_ => {

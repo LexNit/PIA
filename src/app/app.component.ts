@@ -1,4 +1,3 @@
-import { HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
 
 
@@ -14,6 +13,6 @@ export class AppComponent {
     { title: 'Gatos', url: '/folder/Gatos', icon: 'heart' },
     { title: 'Peces', url: '/folder/Peces', icon: 'archive' },
   ];
-  public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
+  //public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
   constructor() {}
 }

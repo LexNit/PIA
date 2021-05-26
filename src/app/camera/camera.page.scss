@@ -46,13 +46,10 @@ div {
   box-shadow: 0 1px 0 rgba(0,0,0,0.2);
 }
 
-
-
 .circular .circle {
   z-index: 1;
   box-shadow: none;
 }
-
 
 .circular .bar {
   position: absolute;
@@ -82,10 +79,12 @@ div {
   animation: left 0.5s linear both;
 }
 
-@keyframes left {
-  100%{
-    transform: rotate(180deg);
-  }
+.circle .dot span {
+  position: absolute;
+  right: 0;
+  width: 10px;
+  height: 10px;
+  border-radius: 100%;
 }
 
 .circle .right {
@@ -98,18 +97,17 @@ div {
   animation-delay: 0.5s;
 }
 
+//Animación de barras de progreso
+@keyframes left {
+  100%{
+    transform: rotate(180deg);
+  }
+}
+
 @keyframes right {
   100%{
     transform: rotate(90deg);
   }
-}
-
-.circle .dot span {
-  position: absolute;
-  right: 0;
-  width: 10px;
-  height: 10px;
-  border-radius: 100%;
 }
 
 @keyframes fade {
@@ -196,6 +194,7 @@ div {
   transform: rotate(180deg);
 }
 
+//Animacion para desvanecimiento para circulos
 @keyframes fade {
   0% {
     opacity: 0;
@@ -214,7 +213,7 @@ h1 {
 
 }
 
-
+//Animacion para desvanecimiento para texto
 @keyframes fadeh {
   0% {
     opacity: 0;

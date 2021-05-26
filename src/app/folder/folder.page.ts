@@ -3,13 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Dogmodel } from 'src/app/Dogmodel';
 import { NavController, ToastController } from '@ionic/angular';
-import { CameraPage } from '../camera/camera.page';
-
-// Para SQLite y su forms
-// import { FormGroup, FormBuilder } from "@angular/forms";
-// import { DbService } from './../services/db.service';
-// import { ToastController } from '@ionic/angular';
-// import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-folder',
@@ -35,7 +28,7 @@ export class FolderPage implements OnInit {
     private navCtrl: NavController,
     ) { }
 
-
+  //Inicialización para tener lista la API
   ngOnInit() {
     this.folder = this.activatedRoute.snapshot.paramMap.get('id');
     this.url='https://dog.ceo/api/breeds/image/random';
@@ -43,6 +36,7 @@ export class FolderPage implements OnInit {
     this.processing=false;
   }
 
+  //Funcion para llamar a la API de perros
   callApi()
   {
     this.processing = true;
@@ -54,20 +48,12 @@ export class FolderPage implements OnInit {
     })
   }
 
-  showDog()
-  {
-
-  }
-
+  //Funcion para llamar a la API de gatos
   getAllFacts() {
     this.http.get(this.url_facts)
     .subscribe( f => {
       console.log(f);
       this.facts = f;
     });
-  }
-
-  gotocamera(){
-    this.navCtrl.navigateForward('CameraPage');
   }
 }

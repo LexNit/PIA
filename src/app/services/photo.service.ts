@@ -33,12 +33,6 @@ export class PhotoService {
       quality: 100                      //la mas alta calidad (0-100)
     });
 
-    /*agregamos la foto capturada al inicio del arrelgo
-    this.photos.unshift({
-      filepath: "soon...",
-      webviewPath: capturedPhoto.webPath
-    });*/
-
     const savedImageFile = await this.savePicture(capturedPhoto);
     this.photos.unshift(savedImageFile);
 
@@ -50,7 +44,7 @@ export class PhotoService {
 
   }
 
-  //***** Función para poder regresar la imagen, guardarla y tener que mostrar
+  //Función para poder regresar la imagen, guardarla y tener que mostrar
   private async savePicture(cameraPhoto: CameraPhoto) {
     //Conversión a base64 requerida para que la api Filesystem guarde la imagen 
     const base64Data = await this.readAsBase64(cameraPhoto);
@@ -70,7 +64,7 @@ export class PhotoService {
     };
   }
 
-  //******Función lógica para convertir la iamgen a base 64 usando la API
+  //Función lógica para convertir la iamgen a base 64 usando la API
   private async readAsBase64(cameraPhoto: CameraPhoto) {
     // Fetch the photo, read as a blob, then convert to base64 format Llamada fetch para la foto, leer como blob y convertir a base64
     const response = await fetch(cameraPhoto.webPath!);
@@ -88,7 +82,7 @@ export class PhotoService {
     reader.readAsDataURL(blob);
   });
 
-  //*******Funcion en cargada de cargar el arreglo de fotos guardado
+  //Funcion en cargada de cargar el arreglo de fotos guardado
   public async loadSaved() {
     //Recarga el arreglo guardado
     const photoList = await Storage.get({ key: this.PHOTO_STORAGE });

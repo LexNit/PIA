@@ -32,6 +32,7 @@ export class AddogsPage implements OnInit {
     })
   }
 
+  //Funcion para inicializar las casillas de los datos
   ngOnInit() {
     this.editForm = this.formBuilder.group({
       breed: [''],
@@ -41,6 +42,7 @@ export class AddogsPage implements OnInit {
     })
   }
 
+  //Funcion para guardar los datos del form
   saveForm() {
     this.db.updateDog(this.id, this.editForm.value)
     .then((res) => {
@@ -49,6 +51,7 @@ export class AddogsPage implements OnInit {
     })
   }
 
+  ////Funcion para el boton de back esquina superior izquierda
   getBackButtonText() {
     const win = window as any;
     const mode = win && win.Ionic && win.Ionic.mode;

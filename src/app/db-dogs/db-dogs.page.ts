@@ -24,7 +24,7 @@ export class DbDogsPage implements OnInit {
   ) { }
 
   ngOnInit() {
-    //Inicializado de base de datos y despliegue de canciones
+    //Inicializado de base de datos y despliegue de perros
     this.db.dbState().subscribe((res) => {
       if(res) {
         this.db.fetchDogs().subscribe(item => {
@@ -41,6 +41,7 @@ export class DbDogsPage implements OnInit {
     })
   }
 
+  //Funcion para guardar info en la base de datos
   storeData() {
     this.db.addDog(
       this.mainForm.value.breed,
@@ -52,6 +53,7 @@ export class DbDogsPage implements OnInit {
     })
   }
 
+  //Funcion para borrar perros en base al id
   deleteDog(id) {
     this.db.deleteDog(id).then(async(res) => {
       let toast = await this.toast.create({
@@ -62,6 +64,7 @@ export class DbDogsPage implements OnInit {
     })
   }
 
+  //Funcion para el boton de back esquina superior izquierda
   getBackButtonText() {
     const win = window as any;
     const mode = win && win.Ionic && win.Ionic.mode;
